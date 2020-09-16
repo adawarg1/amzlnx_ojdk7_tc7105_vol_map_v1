@@ -1,0 +1,11 @@
+#Step 1: Building an image
+-------------------------------------------------------------------
+docker build -t negi/brg_int_v1 .
+
+#Step 2: List all the images
+-------------------------------------------------------------------
+docker images
+
+#Step 3: Run a container from the image with a volume mount
+-------------------------------------------------------------------
+docker run -itd -p 8080:8080 -v <path_of_bridge_war_on_machine>:/usr/local/tomcat/webapps -v <path_of_integration_war_on_machine>:/usr/local/tomcat/webapps --name=<container-name> <image-id>
